@@ -1,0 +1,40 @@
+{
+  "name": "custum_tabgroup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier --write './src/**/*.ts'",
+    "lint": "npx eslint './src/**/*.{js,ts}' --fix",
+    "test": "npx jest ./src/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/R-Az/custum_tabGroup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/R-Az/custum_tabGroup/issues"
+  },
+  "homepage": "https://github.com/R-Az/custum_tabGroup#readme",
+  "devDependencies": {
+    "@types/chrome": "0.0.133",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.8",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "copy-webpack-plugin": "^8.0.0",
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "webpack": "^5.25.0",
+    "webpack-cli": "^4.5.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.5.2",
+    "ts-jest": "^26.4.1",
+    "prettier": "^2.1.2"
+  }
+}
