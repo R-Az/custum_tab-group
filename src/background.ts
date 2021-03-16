@@ -1,7 +1,4 @@
-type activeInfo = { tabId: number; windowId: number };
-chrome.tabs.onActivated.addListener((activeInfo:activeInfo) => {
+chrome.tabs.onActivated.addListener((activeInfo: chrome.tabs.TabActiveInfo) => {
   const tabId = activeInfo.tabId;
-
   console.log(tabId);
-  
 });

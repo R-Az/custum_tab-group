@@ -15,10 +15,7 @@ module.exports = {
     'no-unreachable': 'error',
   },
   globals: {
-    SpreadsheetApp: false,
-    UrlFetchApp: false,
-    GoogleAppsScript: false,
-    ScriptApp: false,
+    chrome: false,
   },
   env: {
     node: true,
