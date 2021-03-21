@@ -5,7 +5,7 @@
     "strict": true,
     "rootDir": "src",
     "esModuleInterop": true,
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["src/type", "node_modules/@types"],
     "types": ["chrome", "node"]
   },
   "exclude": ["node_modules"]

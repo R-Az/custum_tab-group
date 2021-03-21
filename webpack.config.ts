@@ -4,7 +4,8 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const config: Configuration = {
   entry: {
-    background: path.join(__dirname, 'src/js', 'background.ts'),
+    background: path.join(__dirname, 'src', 'background.ts'),
+    app: path.join(__dirname, 'src/app'),
   },
   output: {
     // distディレクトリにcontent_scripts.jsを吐く
@@ -25,7 +26,7 @@ const config: Configuration = {
   },
   plugins: [
     // publicディレクトリにあるファイルをdistディレクトリにコピーする
-    new CopyWebpackPlugin({ patterns: [{ from: 'public', to: '.' }] }),
+    new CopyWebpackPlugin({ patterns: [{ from: 'src/public', to: '.' }] }),
   ],
 };
 
