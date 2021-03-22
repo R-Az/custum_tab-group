@@ -35,8 +35,7 @@ declare namespace chrome.tabGroups {
 // eslint-disable-next-line no-redeclare
 declare namespace chrome.tabs {
   export interface Tab {
-    // バージョンの都合でgroupIdがまだ@type/chromeに定義されていないため、
-    // ここで定義してマージする。
+    // バージョンの都合でgroupIdがまだ@type/chromeに定義されていないため、ここで定義してマージする。
     groupId: number;
   }
 }
