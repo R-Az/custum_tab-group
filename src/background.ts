@@ -1,8 +1,7 @@
-// 地獄のコールバック
-// Promise化しても良いが、まぁこれくらいなら読める範疇なのでやらない
-
 import { MainStorage } from './app/storage/MainStorage';
 
+// 地獄のコールバック
+// Promise化しても良いが、まぁこれくらいなら読める範疇なのでやらない
 // 10階層超えたらさすがにかんがえる
 chrome.tabs.onActivated.addListener((activeInfo) => {
   const tabId = activeInfo.tabId;

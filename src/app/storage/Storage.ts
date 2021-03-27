@@ -37,12 +37,14 @@ export abstract class Storage<T extends StorageData> implements StorageInterFace
         if (chrome.runtime.lastError) {
           reject(chrome.runtime.lastError);
         }
-        console.log('result_before');
-        if (!result) {
+        const data = result[this.key] as T;
+        if (!data?.isInitialized) {
           await this.save(this.initializeData());
+          // ちょっとここ気持ち悪いがstorageの性質上、
+          // 初回起動で永遠にバグってしまう可能性あるので、こんな実装になっている。
+          // DBと違って、データを一回も保存していないとundifinedが帰ってくるためである。
+          return await this.load();
         }
-        console.log('result');
-
         resolve(result[this.key] as T);
       });
     });
