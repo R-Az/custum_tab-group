@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "tabGroup_customs",
   "description": "タブグループの機能拡張をします。",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icons": { "16": "image/main_16.png", "48": "image/main_48.png", "128": "image/main_128.png" },
   "background": {
     "service_worker": "background.js"
