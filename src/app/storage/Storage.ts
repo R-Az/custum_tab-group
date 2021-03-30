@@ -15,7 +15,6 @@ export abstract class Storage<T extends StorageData> implements StorageInterFace
   protected constructor(key: string, saveType?: StorageType) {
     this.key = key;
     this.storage = saveType === 'sync' ? chrome.storage.sync : chrome.storage.local;
-    console.log('constractor');
   }
 
   save = async (data: T) => {
@@ -39,11 +38,12 @@ export abstract class Storage<T extends StorageData> implements StorageInterFace
         }
         const data = result[this.key] as T;
         if (!data?.isInitialized) {
-          await this.save(this.initializeData());
+          const initData = this.initializeData();
+          await this.save(initData);
           // ちょっとここ気持ち悪いがstorageの性質上、
           // 初回起動で永遠にバグってしまう可能性あるので、こんな実装になっている。
           // DBと違って、データを一回も保存していないとundifinedが帰ってくるためである。
-          return await this.load();
+          resolve(initData);
         }
         resolve(result[this.key] as T);
       });

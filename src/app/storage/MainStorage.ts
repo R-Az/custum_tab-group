@@ -2,11 +2,17 @@ import { StorageData, Storage } from './Storage';
 import { ConfigStorage } from './ConfigStorage';
 
 interface MainData extends StorageData {
-  tabGroupData: TabGroupData[];
+  tabGroups: TabGroups[];
+  urlFilters: string[];
+}
+interface TabGroupData extends Omit<chrome.tabGroups.TabGroup, 'collapsed' | 'windowId' | 'id'> {
+  urlFilter: string[];
 }
 
-interface TabGroupData {
-  URLs: string[];
+interface TabGroups {
+  name: string;
+  isAutoUpdate: boolean;
+  tabGroupData: TabGroupData[];
 }
 
 const main_key = 'custum_tabGroup_main';
@@ -17,5 +23,5 @@ export class MainStorage extends Storage<MainData> {
     return new MainStorage(main_key, config.storageType);
   };
 
-  initializeData = (): MainData => ({ tabGroupData: [{ URLs: [] }], isInitialized: true });
+  initializeData = (): MainData => ({ urlFilters: [], tabGroups: [], isInitialized: true });
 }
