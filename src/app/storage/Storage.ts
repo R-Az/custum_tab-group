@@ -40,9 +40,6 @@ export abstract class Storage<T extends StorageData> implements StorageInterFace
         if (!data?.isInitialized) {
           const initData = this.initializeData();
           await this.save(initData);
-          // ちょっとここ気持ち悪いがstorageの性質上、
-          // 初回起動で永遠にバグってしまう可能性あるので、こんな実装になっている。
-          // DBと違って、データを一回も保存していないとundifinedが帰ってくるためである。
           resolve(initData);
         }
         resolve(result[this.key] as T);
