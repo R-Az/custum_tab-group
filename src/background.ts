@@ -14,12 +14,25 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
       for (const tabGroup of result) {
         const targetGroupId = tabGroup.id;
         if (targetGroupId === currentGroupId) continue;
-        const mainStorage = await MainStorage.init();
-        const data = await mainStorage.load();
-        console.log(data);
 
         chrome.tabGroups.update(targetGroupId, { collapsed: true }, () => {});
       }
     });
   });
+});
+
+chrome.tabs.onCreated.addListener(async (tab) => {
+  const { url } = tab;
+  const mainStorage = await MainStorage.init();
+  const data = await mainStorage.load();
+
+  for (const tabGroup of data.tabGroups) {
+    for (const tabGroupData of tabGroup.tabGroupData) {
+      for (const urlFilter of tabGroupData.urlFilter) {
+        if (url?.startsWith(urlFilter)) {
+          return;
+        }
+      }
+    }
+  }
 });
