@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack --mode production",
+    "build": "rm -r ./dist && npx webpack --mode production",
+    "prod": "npm run build && npx ts-node ./src/tools/zip.ts",
     "format": "npx prettier --write './src/**/*.ts'",
     "lint": "npx eslint './src/**/*.{js,ts}' --fix",
     "test": "npx jest ./src/**/*.ts"
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/R-Az/custum_tabGroup#readme",
   "devDependencies": {
+    "@types/archiver": "^5.1.0",
     "@types/chrome": "0.0.133",
     "@types/copy-webpack-plugin": "^6.4.0",
     "@types/jest": "^26.0.14",
@@ -28,6 +30,7 @@
     "@types/webpack": "^4.41.26",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
+    "archiver": "^5.3.0",
     "copy-webpack-plugin": "^8.0.0",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.12.0",
